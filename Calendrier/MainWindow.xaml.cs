@@ -20,12 +20,16 @@ namespace Calendrier
     /// </summary>
     public partial class MainWindow : Window
     {
+        private Calendrier.ViewModel.CalendrierVM _vm;
+
         public MainWindow()
         {
             InitializeComponent();
+            _vm = new ViewModel.CalendrierVM();
+            DataContext = _vm;
         }
 
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }

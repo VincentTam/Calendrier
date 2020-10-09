@@ -7,6 +7,12 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <DataGrid x:Name="dgData" AutoGenerateColumns="True" ItemsSource="{Binding sessions}" Height="409" VerticalAlignment="Top" SelectionChanged="DataGrid_SelectionChanged" Margin="10,0"/>
+        <DataGrid x:Name="dgData" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" ItemsSource="{Binding sessions}" Height="409" VerticalAlignment="Top" SelectionChanged="DataGrid_SelectionChanged" Margin="10,0">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding DateDebut, StringFormat={}{0:dd/MM/yyyy}}" ClipboardContentBinding="{x:Null}" Header="DateDebut"/>
+                <DataGridTextColumn Binding="{Binding Titre}" ClipboardContentBinding="{x:Null}" Header="Titre"/>
+                <DataGridTextColumn Binding="{Binding Duree}" ClipboardContentBinding="{x:Null}" Header="Duree"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Window>

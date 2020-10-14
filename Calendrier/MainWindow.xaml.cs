@@ -33,5 +33,10 @@ namespace Calendrier
         {
 
         }
+
+        private void BtnAnnule_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

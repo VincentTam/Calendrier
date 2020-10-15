@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Calendrier.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -36,7 +37,8 @@ namespace Calendrier
 
         private void BtnAnnule_Click(object sender, RoutedEventArgs e)
         {
-
+            var s = (Session)dgData.SelectedItem;
+            _vm.CancelSession(s.SessionId);
         }
     }
 }

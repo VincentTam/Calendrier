@@ -32,6 +32,11 @@ namespace Calendrier.ViewModel
             //InitializeComponent();
         }
 
+        internal void CancelSession(int sessionId)
+        {
+            throw new NotImplementedException();
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
     }
 }

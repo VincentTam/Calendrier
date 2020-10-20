@@ -34,7 +34,9 @@ namespace Calendrier.ViewModel
 
         internal void CancelSession(int sessionId)
         {
-            throw new NotImplementedException();
+            var pe = new PachaDataFormationEntities();
+            pe.DeleteSession(sessionId);
+            sessions.Remove(sessions.First(s => s.SessionId == sessionId));
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

@@ -32,6 +32,13 @@ namespace Calendrier.ViewModel
             InitializeComponent();
         }
 
+        internal void GetWeek(DateTime dt)
+        {
+            var year = dt.Year;
+            var cal = System.Globalization.DateTimeFormatInfo.CurrentInfo.Calendar;
+            var week = cal.GetWeekOfYear(dt.ToLocalTime(),
+                System.Globalization.CalendarWeekRule.FirstDay, System.DayOfWeek.Sunday);
+        }
         internal void CancelSession(int sessionId)
         {
             var pe = new PachaDataFormationEntities();

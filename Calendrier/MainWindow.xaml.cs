@@ -40,5 +40,10 @@ namespace Calendrier
             var s = (Session)dgData.SelectedItem;
             _vm.CancelSession(s.SessionId);
         }
+
+        private void dp_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

@@ -29,7 +29,7 @@ namespace Calendrier.ViewModel
         {
             var pe = new PachaDataFormationEntities();
             sessions = new ObservableCollection<Session>(pe.GetSessions(2011, 5));
-            //InitializeComponent();
+            InitializeComponent();
         }
 
         internal void CancelSession(int sessionId)

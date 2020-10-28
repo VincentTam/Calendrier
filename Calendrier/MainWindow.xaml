@@ -7,25 +7,26 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <DataGrid x:Name="dgData" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" ItemsSource="{Binding sessions}" Height="359" VerticalAlignment="Top" SelectionChanged="DataGrid_SelectionChanged" Margin="10,50,10,0" GridLinesVisibility="Horizontal">
-            <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding DateDebut, StringFormat={}{0:dd/MM/yyyy}}" ClipboardContentBinding="{x:Null}" Header="DateDebut"/>
-                <DataGridTextColumn Binding="{Binding Titre}" ClipboardContentBinding="{x:Null}" Header="Titre"/>
-                <DataGridTextColumn Binding="{Binding Duree}" ClipboardContentBinding="{x:Null}" Header="Duree"/>
-                <DataGridTextColumn Binding="{Binding Inscrits}" ClipboardContentBinding="{x:Null}" Header="Inscrits"/>
-                <DataGridTemplateColumn>
-                    <DataGridTemplateColumn.CellEditingTemplate>
-                        <DataTemplate>
-                            <Button x:Name="btnCancel" ToolTip="Annuler la session" Click="BtnAnnule_Click">Annuler</Button>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellEditingTemplate>
-                </DataGridTemplateColumn>
-            </DataGrid.Columns>
-        </DataGrid>
-        <StackPanel HorizontalAlignment="Left" Height="35" Margin="10,10,0,0" VerticalAlignment="Top" Width="772">
+        <StackPanel>
             <ToolBar x:Name="tb">
                 <DatePicker x:Name="dp" SelectedDate="2011-01-01" VerticalAlignment="Top" SelectedDateChanged="dp_SelectedDateChanged"/>
             </ToolBar>
+            <TextBlock x:Name="Title" Margin="10" FontSize="20">Calendrier</TextBlock>
+            <DataGrid x:Name="dgData" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" ItemsSource="{Binding sessions}" Height="359" VerticalAlignment="Top" SelectionChanged="DataGrid_SelectionChanged" Margin="10,50,10,0" GridLinesVisibility="Horizontal">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding DateDebut, StringFormat=\{0:dd/MM/yyyy\}}" ClipboardContentBinding="{x:Null}" Header="DateDebut"/>
+                    <DataGridTextColumn Binding="{Binding Titre}" ClipboardContentBinding="{x:Null}" Header="Titre"/>
+                    <DataGridTextColumn Binding="{Binding Duree}" ClipboardContentBinding="{x:Null}" Header="Duree"/>
+                    <DataGridTextColumn Binding="{Binding Inscrits}" ClipboardContentBinding="{x:Null}" Header="Inscrits"/>
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.CellEditingTemplate>
+                            <DataTemplate>
+                                <Button x:Name="btnCancel" ToolTip="Annuler la session" Click="BtnAnnule_Click" Content="Annuler"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellEditingTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
         </StackPanel>
     </Grid>
 </Window>

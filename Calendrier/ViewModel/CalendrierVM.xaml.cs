@@ -24,20 +24,27 @@ namespace Calendrier.ViewModel
     public partial class CalendrierVM : UserControl,  INotifyPropertyChanged
     {
         public ObservableCollection<Session> sessions { get; private set; }
+        public int Year { get; private set; }
+        public byte Week { get; private set; }
 
         public CalendrierVM()
         {
             var pe = new PachaDataFormationEntities();
             sessions = new ObservableCollection<Session>(pe.GetSessions(2011, 5));
-            InitializeComponent();
+            Year = 2011;
+            Week = 5;
+            //InitializeComponent();
         }
 
         internal void GetWeek(DateTime dt)
         {
             var year = dt.Year;
             var cal = System.Globalization.DateTimeFormatInfo.CurrentInfo.Calendar;
-            var week = cal.GetWeekOfYear(dt.ToLocalTime(),
+            var week = (byte) cal.GetWeekOfYear(dt.ToLocalTime(),
                 System.Globalization.CalendarWeekRule.FirstDay, System.DayOfWeek.Sunday);
+
+            var pe = new PachaDataFormationEntities();
+            sessions = new ObservableCollection<Session>(pe.GetSessions(year, 5));
         }
         internal void CancelSession(int sessionId)
         {

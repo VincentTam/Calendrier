@@ -44,7 +44,7 @@ namespace Calendrier.ViewModel
                 System.Globalization.CalendarWeekRule.FirstDay, System.DayOfWeek.Sunday);
 
             var pe = new PachaDataFormationEntities();
-            sessions = new ObservableCollection<Session>(pe.GetSessions(Year, 5));
+            sessions = new ObservableCollection<Session>(pe.GetSessions(Year, Week));
         }
         internal void CancelSession(int sessionId)
         {

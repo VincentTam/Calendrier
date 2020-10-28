@@ -36,6 +36,15 @@ namespace Calendrier.ViewModel
             //InitializeComponent();
         }
 
+        protected void OnPropertyChanged(string name)
+        {
+            var handler = PropertyChanged;
+            if (handler != null)
+            {
+                handler(this, new PropertyChangedEventArgs(name));
+            }
+        }
+
         internal void GetWeek(DateTime dt)
         {
             Year = dt.Year;
@@ -45,6 +54,7 @@ namespace Calendrier.ViewModel
 
             var pe = new PachaDataFormationEntities();
             sessions = new ObservableCollection<Session>(pe.GetSessions(Year, Week));
+            OnPropertyChanged("sessions");
         }
         internal void CancelSession(int sessionId)
         {

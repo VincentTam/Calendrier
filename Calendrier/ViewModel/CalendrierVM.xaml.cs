@@ -38,13 +38,13 @@ namespace Calendrier.ViewModel
 
         internal void GetWeek(DateTime dt)
         {
-            var year = dt.Year;
+            Year = dt.Year;
             var cal = System.Globalization.DateTimeFormatInfo.CurrentInfo.Calendar;
-            var week = (byte) cal.GetWeekOfYear(dt.ToLocalTime(),
+            Week = (byte) cal.GetWeekOfYear(dt.ToLocalTime(),
                 System.Globalization.CalendarWeekRule.FirstDay, System.DayOfWeek.Sunday);
 
             var pe = new PachaDataFormationEntities();
-            sessions = new ObservableCollection<Session>(pe.GetSessions(year, 5));
+            sessions = new ObservableCollection<Session>(pe.GetSessions(Year, 5));
         }
         internal void CancelSession(int sessionId)
         {

@@ -12,7 +12,7 @@
                 <DatePicker x:Name="dp" SelectedDate="2011-01-01" VerticalAlignment="Top" SelectedDateChanged="dp_SelectedDateChanged"/>
             </ToolBar>
             <TextBlock x:Name="Title" Margin="10" FontSize="20">Calendrier</TextBlock>
-            <DataGrid x:Name="dgData" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" ItemsSource="{Binding sessions}" Height="359" VerticalAlignment="Top" SelectionChanged="DataGrid_SelectionChanged" Margin="10,50,10,0" GridLinesVisibility="Horizontal">
+            <DataGrid x:Name="dgData" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" ItemsSource="{Binding sessions}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" SelectionChanged="DataGrid_SelectionChanged" Margin="10,10,10,10" GridLinesVisibility="Horizontal">
                 <DataGrid.Columns>
                     <DataGridTextColumn Binding="{Binding DateDebut, StringFormat=\{0:dd/MM/yyyy\}}" ClipboardContentBinding="{x:Null}" Header="DateDebut"/>
                     <DataGridTextColumn Binding="{Binding Titre}" ClipboardContentBinding="{x:Null}" Header="Titre"/>

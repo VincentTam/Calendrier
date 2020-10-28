@@ -47,7 +47,7 @@ namespace Calendrier
             if (dp.SelectedDate != null)
             {
                 _vm.GetWeek(dp.SelectedDate.Value);
-                Title.Text = string.Format("Calendrier : {0} sessions en semaine {1}", _vm.sessions.Count, _vm.Week);
+                Title.Text = $"Calendrier : {_vm.sessions.Count} sessions en semaine {_vm.Week}";
             }
         }
     }

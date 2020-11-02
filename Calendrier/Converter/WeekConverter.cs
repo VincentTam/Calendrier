@@ -13,6 +13,9 @@ namespace Calendrier.Converter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
+            if (value == null) throw new NullReferenceException("la valeur ne peut pas être null");
+            var d = (DateTime)value;
+            return CultureInfo.CurrentCulture.DateTimeFormat.DayNames[(int)d.DayOfWeek];
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:converter="clr-namespace:Calendrier.Converter"
         xmlns:local="clr-namespace:Calendrier"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
@@ -26,9 +27,10 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        <converter:WeekConverter x:Key="WeekConverter"></converter:WeekConverter>
         <CollectionViewSource x:Key="cvs" Source="{Binding sessions,UpdateSourceTrigger=PropertyChanged}">
             <CollectionViewSource.GroupDescriptions>
-                <PropertyGroupDescription PropertyName="DateDebut" />
+                <PropertyGroupDescription PropertyName="DateDebut" Converter="{StaticResource WeekConverter}" />
             </CollectionViewSource.GroupDescriptions>
         </CollectionViewSource>
     </Window.Resources>

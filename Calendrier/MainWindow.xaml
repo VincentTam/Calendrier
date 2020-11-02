@@ -26,6 +26,11 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        <CollectionViewSource x:Key="cvs" Source="{Binding sessions,UpdateSourceTrigger=PropertyChanged}">
+            <CollectionViewSource.GroupDescriptions>
+                <PropertyGroupDescription PropertyName="DateDebut" />
+            </CollectionViewSource.GroupDescriptions>
+        </CollectionViewSource>
     </Window.Resources>
     <Grid>
         <StackPanel>
@@ -33,7 +38,7 @@
                 <DatePicker x:Name="dp" SelectedDate="2011-01-01" VerticalAlignment="Top" SelectedDateChanged="dp_SelectedDateChanged"/>
             </ToolBar>
             <TextBlock x:Name="Title" Margin="10" FontSize="20">Calendrier</TextBlock>
-            <DataGrid x:Name="dgData" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" ItemsSource="{Binding sessions}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" SelectionChanged="DataGrid_SelectionChanged" Margin="10,10,10,10" GridLinesVisibility="Horizontal">
+            <DataGrid x:Name="dgData" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" ItemsSource="{Binding Source={StaticResource cvs}}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" SelectionChanged="DataGrid_SelectionChanged" Margin="10,10,10,10" GridLinesVisibility="Horizontal">
                 <DataGrid.GroupStyle>
                     <GroupStyle ContainerStyle="{StaticResource GroupHeaderStyle}"></GroupStyle>
                 </DataGrid.GroupStyle>

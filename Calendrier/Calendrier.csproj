@@ -65,6 +65,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Converter\WeekConverter.cs" />
     <Compile Include="ViewModel\CalendrierVM.xaml.cs">
       <DependentUpon>CalendrierVM.xaml</DependentUpon>
     </Compile>
